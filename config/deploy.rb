@@ -5,9 +5,9 @@ set :repo_url, 'git@github.com:bezrukavyi/to_do_api.git'
 
 set :use_sudo, false
 set :deploy_via, :copy
-set :keep_releases, 2 # Release count
+set :keep_releases, 2
 
-set :log_level, :debug  # Capistrano log
+set :log_level, :debug
 set :pty, true
 
 set :rvm1_ruby_version, 'ruby-2.4.1'
@@ -56,7 +56,7 @@ namespace :app do
     on roles(:app) do
       invoke 'rvm1:hook'
       within "#{fetch(:deploy_to)}/current/" do
-        execute :bundle, :exec, :"puma -C config/puma.#{fetch(:stage)}.rb -e #{fetch(:stage)}"
+        execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
       end
     end
   end
@@ -66,7 +66,7 @@ namespace :app do
     on roles(:app) do
       invoke 'rvm1:hook'
       within "#{fetch(:deploy_to)}/current/" do
-        execute :bundle, :exec, :"pumactl -F config/puma.#{fetch(:stage)}.rb stop"
+        execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
       end
     end
   end
@@ -77,10 +77,10 @@ namespace :app do
       invoke 'rvm1:hook'
       within "#{fetch(:deploy_to)}/current/" do
         if test("[ -f #{deploy_to}/current/tmp/pids/puma.pid ]")
-          execute :bundle, :exec, :"pumactl -F config/puma.#{fetch(:stage)}.rb stop"
+          execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
         end
 
-        execute :bundle, :exec, :"puma -C config/puma.#{fetch(:stage)}.rb -e #{fetch(:stage)}"
+        execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
       end
     end
   end
