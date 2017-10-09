@@ -2,8 +2,6 @@ class Api::V1::Auth::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCall
   def get_resource_from_auth_hash
     info = auth_hash['info']
     @resource = resource_class.find_or_initialize_by(email: info['email'])
-    @resource.uid = auth_hash['uid']
-    @resource.provider = auth_hash['provider']
 
     if @resource.new_record?
       @oauth_registration = true
