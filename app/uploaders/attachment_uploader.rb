@@ -5,7 +5,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     path = url || metadata['url']
     {
       file_name: file.filename,
-      url: ENV['DOMAIN'] + path,
+      url: path,
       extension: file.extension
     }
   end
