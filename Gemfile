@@ -29,6 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.7'
   gem 'ffaker', '~> 2.6'
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+  gem 'letter_opener_web'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'bullet', '~> 5.6'

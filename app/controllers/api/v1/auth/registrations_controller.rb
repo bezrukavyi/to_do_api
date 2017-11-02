@@ -10,6 +10,7 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
   end
 
   def render_create_success
+    response.headers.merge!(@resource.create_new_auth_token)
     respond_with @resource
   end
 

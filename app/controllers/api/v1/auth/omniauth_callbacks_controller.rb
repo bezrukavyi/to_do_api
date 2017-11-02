@@ -22,8 +22,8 @@ class Api::V1::Auth::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCall
 
   def create_auth_params
     @auth_params = {
-      'access-token': @token,
-      'client': @client_id,
+      'token': @token,
+      'client_id': @client_id,
       'uid': @resource.uid
     }
 
@@ -33,7 +33,6 @@ class Api::V1::Auth::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCall
 
   def assign_provider_attrs(user, auth_hash)
     user.assign_attributes(
-      name: auth_hash['info']['name'],
       email: auth_hash['info']['email']
     )
   end
