@@ -3,6 +3,8 @@ lock '3.7.2'
 set :application, 'to_do_api'
 set :repo_url, 'git@github.com:bezrukavyi/to_do_api.git'
 
+set :tmp_dir, '/home/deployer/tmp'
+
 set :use_sudo, false
 set :deploy_via, :copy
 set :keep_releases, 2
