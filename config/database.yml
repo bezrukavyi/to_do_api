@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: to_do_api_productionn
-  host: 127.0.0.1
+  database: <%= ENV['PG_DB'] %>
+  host: <%= ENV['PG_HOST'] %>
   username: <%= ENV['PG_USERNAME'] %>
   password: <%= ENV['PG_PASSWORD'] %>

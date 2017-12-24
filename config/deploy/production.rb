@@ -1,6 +1,6 @@
-role :app, %w[deployer@95.85.11.63]
-role :web, %w[deployer@95.85.11.63]
-role :db,  %w[deployer@95.85.11.63]
+role :app, %w[deployer@188.226.189.119]
+role :web, %w[deployer@188.226.189.119]
+role :db,  %w[deployer@188.226.189.119]
 
 set :branch, fetch(:branch, 'master')
 set :deploy_to, '/home/deployer/www/to_do_api'
